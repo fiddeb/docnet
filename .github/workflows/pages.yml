@@ -40,13 +40,11 @@ jobs:
         run: |
           git config --global url."https://x-access-token:${GH_READ_TOKEN}@github.com/".insteadOf "https://github.com/"
 
-      - name: Initialize and update submodules
+      - name: Clone documentation repositories
         run: |
-          # Initialize submodules if not already done
-          mkdocs-multirepo --init || true
-          # Update submodules to latest
-          git submodule update --init --recursive
-          mkdocs-multirepo --update
+          mkdir -p src
+          # Clone observabilitystack
+          git clone --depth 1 --branch main https://github.com/fiddeb/observabilitystack.git src/observabilitystack
 
       - name: Build documentation
         run: |
