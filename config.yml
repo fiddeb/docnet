@@ -9,6 +9,7 @@ repos:
     branch: main
     element_id: public-projects
     image: assets/logo.png
+    mkdocs_dir: ""
 
   # Add more public projects here as needed
   # - name: proj-b
@@ -17,6 +18,7 @@ repos:
   #   branch: main
   #   element_id: public-projects
   #   image: assets/logo.png
+  #   mkdocs_dir: ""
 
   # Private blog repository (requires GH_READ_TOKEN)
   # - name: blog
@@ -25,6 +27,7 @@ repos:
   #   branch: main
   #   element_id: blog
   #   image: assets/logo.png
+  #   mkdocs_dir: ""
 
 # Output configuration
 element_id: public-projects  # Default element_id if not specified per repo
