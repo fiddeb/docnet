@@ -1,4 +1,4 @@
-# Documentation Hub
+# Docnet
 
 Central documentation portal that aggregates multiple project documentation sites using mkdocs-multirepo.
 
@@ -14,7 +14,7 @@ This repository serves as the single source for building and publishing document
 ## Structure
 
 ```
-docs-hub/
+docnet/
 ├── config.yml                    # mkdocs-multirepo configuration
 ├── index.tpl                     # Landing page template
 ├── styles.css                    # Custom styles for landing page
@@ -25,7 +25,7 @@ docs-hub/
 └── .github/
     └── workflows/
         ├── pages.yml             # Build and deploy workflow
-        └── notify-docs-hub.example.yml  # Example for source repos
+        └── notify-docnet.example.yml  # Example for source repos
 ```
 
 ## Setup
@@ -54,11 +54,11 @@ repos:
 For each repository you want to include:
 
 1. Ensure it has a `docs/` directory and `mkdocs.yml` or `mkdocs.yaml`
-2. Copy `.github/workflows/notify-docs-hub.example.yml` to that repo as `.github/workflows/notify-docs-hub.yml`
+2. Copy `.github/workflows/notify-docnet.example.yml` to that repo as `.github/workflows/notify-docnet.yml`
 3. Create a fine-grained Personal Access Token (PAT) with:
-   - Repository access: Only select repositories (choose docs-hub)
+   - Repository access: Only select repositories (choose docnet)
    - Permissions: Contents (read), Workflows (read and write)
-4. Add the PAT as a secret named `DOCS_HUB_TOKEN` in the source repository
+4. Add the PAT as a secret named `DOCNET_TOKEN` in the source repository
 
 ### 4. Private Repositories (Optional)
 
@@ -67,7 +67,7 @@ For private documentation repositories:
 1. Create another fine-grained PAT with:
    - Repository access: Only select repositories (choose your private repos)
    - Permissions: Contents (read)
-2. Add it as `GH_READ_TOKEN` secret in the docs-hub repository
+2. Add it as `GH_READ_TOKEN` secret in the docnet repository
 3. Uncomment the private repo entries in `config.yml`
 
 ## How It Works
@@ -78,7 +78,7 @@ For private documentation repositories:
 sequenceDiagram
     participant Dev as Developer
     participant Source as Source Repo
-    participant Hub as Docs Hub
+    participant Hub as Docnet
     participant Pages as GitHub Pages
 
     Dev->>Source: Push docs changes
@@ -141,7 +141,7 @@ Then add corresponding sections in `index.tpl`:
 
 ## Dependencies Management
 
-All source repositories should use compatible MkDocs plugins. The `requirements.txt` in docs-hub includes common plugins:
+All source repositories should use compatible MkDocs plugins. The `requirements.txt` in docnet includes common plugins:
 
 - `mkdocs-material`: Material theme
 - `pymdown-extensions`: Enhanced markdown
@@ -162,9 +162,9 @@ Verify `GH_READ_TOKEN` secret has correct permissions and hasn't expired.
 ### Dispatch Not Triggering Build
 
 Check that:
-- `DOCS_HUB_TOKEN` secret exists in source repo
+- `DOCNET_TOKEN` secret exists in source repo
 - Token has workflow write permissions
-- Repository name in notify workflow matches docs-hub
+- Repository name in notify workflow matches docnet
 
 ### Submodule Update Fails
 
