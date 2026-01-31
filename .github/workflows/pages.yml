@@ -40,9 +40,16 @@ jobs:
         run: |
           git config --global url."https://x-access-token:${GH_READ_TOKEN}@github.com/".insteadOf "https://github.com/"
 
-      - name: Update submodules and build
+      - name: Initialize and update submodules
         run: |
+          # Initialize submodules if not already done
+          mkdocs-multirepo --init || true
+          # Update submodules to latest
+          git submodule update --init --recursive
           mkdocs-multirepo --update
+
+      - name: Build documentation
+        run: |
           mkdocs-multirepo --build
 
       - name: Upload Pages artifact
