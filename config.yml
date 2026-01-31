@@ -32,3 +32,4 @@ index_tpl: index.tpl          # Landing page template
 # Extra files to copy to the site
 extra_files:
   - styles.css
+  - assets/logo.png
