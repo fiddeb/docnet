@@ -9,7 +9,8 @@ repos:
     branch: main
     element_id: public-projects
     image: assets/logo.png
-    mkdocs_dir: ""
+    mkdocs_dir: "."
+    mkdocs_config: mkdocs.yaml
 
   # Add more public projects here as needed
   # - name: proj-b
