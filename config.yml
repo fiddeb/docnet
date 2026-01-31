@@ -1,0 +1,35 @@
+# mkdocs-multirepo configuration for docs-hub
+# This config defines all documentation repositories to aggregate
+
+# Repository entries
+repos:
+  - name: observabilitystack
+    title: ObservabilityStack
+    url: https://github.com/fiddeb/observabilitystack.git
+    branch: main
+    element_id: public-projects
+
+  # Add more public projects here as needed
+  # - name: proj-b
+  #   title: Project B
+  #   url: https://github.com/fiddeb/proj-b.git
+  #   branch: main
+  #   element_id: public-projects
+
+  # Private blog repository (requires GH_READ_TOKEN)
+  # - name: blog
+  #   title: Blog
+  #   url: https://github.com/fiddeb/blog.git
+  #   branch: main
+  #   element_id: blog
+
+# Output configuration
+element_id: public-projects  # Default element_id if not specified per repo
+target_dir: site              # Where mkdocs-multirepo builds to
+repos_dir: src                # Where repos are cloned as submodules
+index_tpl: index.tpl          # Landing page template
+
+# Extra files to copy to the site
+extra_files:
+  - styles.css
+  - assets/logo.png

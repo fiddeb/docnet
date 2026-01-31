@@ -1,0 +1,52 @@
+site_name: ObservabilityStack
+site_description: GitOps-managed observability stack for local Kubernetes
+site_author: Fredrik Frodlund
+repo_url: https://github.com/fiddeb/observabilitystack
+repo_name: fiddeb/observabilitystack
+
+theme:
+  name: "material"
+  palette:
+    primary: "grey"
+    accent: "deep purple"
+  logo: assets/logo.png
+  favicon: logo.png
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - codehilite  
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: guides/INSTALLATION.md
+    - Usage Guide: guides/USAGE_GUIDE.md
+  - Guides:
+    - Architecture: guides/ARCHITECTURE.md
+    - Git Workflow: guides/GIT_WORKFLOW.md
+    - Troubleshooting: guides/TROUBLESHOOTING.md
+  - Advanced:
+    - Batch Optimization: advanced/BATCH_OPTIMIZATION.md
+    - Mimir Setup: advanced/MIMIR_SETUP.md
