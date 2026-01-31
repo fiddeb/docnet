@@ -8,6 +8,7 @@ repos:
     url: https://github.com/fiddeb/observabilitystack.git
     branch: main
     element_id: public-projects
+    image: assets/logo.png
 
   # Add more public projects here as needed
   # - name: proj-b
@@ -15,6 +16,7 @@ repos:
   #   url: https://github.com/fiddeb/proj-b.git
   #   branch: main
   #   element_id: public-projects
+  #   image: assets/logo.png
 
   # Private blog repository (requires GH_READ_TOKEN)
   # - name: blog
@@ -22,6 +24,7 @@ repos:
   #   url: https://github.com/fiddeb/blog.git
   #   branch: main
   #   element_id: blog
+  #   image: assets/logo.png
 
 # Output configuration
 element_id: public-projects  # Default element_id if not specified per repo
